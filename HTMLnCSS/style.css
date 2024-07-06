@@ -1,0 +1,19 @@
+/* --------------------- Page 1 ------------------------------- */
+.Personal-container {
+  /* background-color: #ebeaea; */
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+gap: 2rem;
+}
+
+.Personal-container img {
+  width: 100%;
+  border-radius: 25%;
+}
+
+.Personal-container div {
+  font-weight: bold;
+  font-size: 17px;
+}
+
