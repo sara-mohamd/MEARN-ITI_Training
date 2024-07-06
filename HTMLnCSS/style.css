@@ -18,14 +18,24 @@ margin-bottom: 5%;
   font-size: 17px;
 }
 
+/* --------------------- Page 2 ------------------------------- */
 
-.hob {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  gap: 1rem;
-}
+      .hob {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 1rem;
+      }
 
-.hob img {
-  border: 3px solid black;
-  border-radius: 50%;
-}
+      .hob img {
+        border: 3px solid #ddd ;
+        border-radius: 50%;
+        width: 100%;
+        height: auto;
+        transition: transform 0.3s ease;
+      }
+
+      .hob img:hover {
+        transform: scale(1.2);
+      }
+
+/* --------------------- Page 3 ------------------------------- */
