@@ -5,6 +5,7 @@
   grid-template-columns: repeat(2, 1fr);
   align-items: center;
 gap: 2rem;
+margin-bottom: 5%;
 }
 
 .Personal-container img {
@@ -17,3 +18,14 @@ gap: 2rem;
   font-size: 17px;
 }
 
+
+.hob {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.hob img {
+  border: 3px solid black;
+  border-radius: 50%;
+}
