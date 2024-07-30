@@ -4,20 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Simple To-Do App</title>
+  <title>Advanced To-Do App</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
   <div id="todo-container">
     <form id="todo-form">
-      <input type="text" id="todo-input" placeholder="Add a new to-do">
+      <input type="text" id="todo-input" placeholder="Add a new task">
       <button type="submit" id="todo-button">Add</button>
     </form>
-    <ul id="todo-list"></ul>
+    <div class="todo-section">
+      <div class="section-title">To-Do Tasks</div>
+      <ul id="todo-list" class="todo-list"></ul>
+    </div>
+    <div class="todo-section">
+      <div class="section-title">Finished Tasks</div>
+      <ul id="finished-list" class="todo-list"></ul>
+    </div>
   </div>
 
-  <script src="./script.js"></script>
+  <script src="script.js"></script>
 </body>
 
 </html>

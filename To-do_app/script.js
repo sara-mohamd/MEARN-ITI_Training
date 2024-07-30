@@ -1,29 +1,52 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const todoForm = document.getElementById('todo-form');
-    const todoInput = document.getElementById('todo-input');
-    const todoList = document.getElementById('todo-list');
+  const todoForm = document.getElementById('todo-form');
+  const todoInput = document.getElementById('todo-input');
+  const todoList = document.getElementById('todo-list');
+  const finishedList = document.getElementById('finished-list');
 
-    // Add a new to-do item
-    todoForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const todoText = todoInput.value.trim();
-        if (todoText) {
-            const todoItem = document.createElement('li');
-            todoItem.className = 'todo-item';
-            todoItem.innerHTML = `
-                <span>${todoText}</span>
+  todoForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const todoText = todoInput.value.trim();
+    if (todoText) {
+      addTask(todoList, todoText, false);
+      todoInput.value = '';
+    }
+  });
+
+  const addTask = (list, text, isFinished) => {
+    const todoItem = document.createElement('li');
+    todoItem.className = 'todo-item';
+    todoItem.innerHTML = `
+            <span contenteditable="false">${text}</span>
+            <div class="task-buttons">
+                ${!isFinished ? '<button class="complete-button">Complete</button>' : ''}
+                <button class="edit-button">Edit</button>
                 <button class="delete-button">Delete</button>
-            `;
-            todoList.appendChild(todoItem);
-            todoInput.value = '';
-        }
+            </div>
+        `;
+    list.appendChild(todoItem);
+
+    const completeButton = todoItem.querySelector('.complete-button');
+    const editButton = todoItem.querySelector('.edit-button');
+    const deleteButton = todoItem.querySelector('.delete-button');
+    const taskText = todoItem.querySelector('span');
+
+    if (completeButton) {
+      completeButton.addEventListener('click', () => {
+        list.removeChild(todoItem);
+        addTask(finishedList, text, true);
+      });
+    }
+
+    editButton.addEventListener('click', () => {
+      const isEditable = taskText.isContentEditable;
+      taskText.contentEditable = !isEditable;
+      taskText.focus();
+      editButton.textContent = isEditable ? 'Edit' : 'Save';
     });
 
-    // Delete a to-do item
-    todoList.addEventListener('click', (e) => {
-        if (e.target.classList.contains('delete-button')) {
-            const todoItem = e.target.parentElement;
-            todoList.removeChild(todoItem);
-        }
+    deleteButton.addEventListener('click', () => {
+      list.removeChild(todoItem);
     });
+  };
 });
