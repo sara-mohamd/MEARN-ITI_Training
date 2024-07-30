@@ -1,0 +1,19 @@
+/* src/components/Dreams.css */
+
+.dreams-section {
+    padding: 2rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+.dreams-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.dreams-content p {
+    font-size: 1rem;
+    margin: 1rem 0;
+    line-height: 1.6;
+}
